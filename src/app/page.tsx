@@ -1,113 +1,158 @@
-import Image from 'next/image'
+"use client"
+import { useState } from "react";
+import Cell from "../components/cell"
+import WhiteSpace from "@/components/white-space"
+import Block from "@/components/block";
 
 export default function Home() {
+  const [hoveredSymbol, setHoveredSymbol] = useState<string>('H');
+  const [hoveredElement, setHoveredElement] = useState<string>('Hydrogen');
+  const [hoveredType, setHoveredType] = useState<string>('nonmetals');
+  const [hoveredMass, setHoveredMass] = useState<number>(1);
+  const [hoveredAtomic, setHoveredAtomic] = useState<number>(1);
+
+  const handleHoveredSymbolChange = (data: { element: string, symbol: string, atomic: number, mass: number, type: string }) => {
+    if (data.symbol !== "") {
+      setHoveredElement(data.element);
+      setHoveredSymbol(data.symbol);
+      setHoveredAtomic(data.atomic);
+      setHoveredMass(data.mass);
+      setHoveredType(data.type)
+    }
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="select-none">
+      <header className="flex justify-center align-middle text-4xl text-white mt-4 ">
+        Peridic Table
+      </header>
+      <Block element={hoveredElement} symbol={hoveredSymbol} atomic={hoveredAtomic} mass={hoveredMass} type={hoveredType} />
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <main className="flex">
+        <table className="w-full border-separate border-spacing-3">
+          <tbody>
+            <tr>
+              <Cell element="Hydrogen" symbol="H" atomic={1} mass={1} type="nonmetals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <WhiteSpace spaces={16} />
+              <Cell element="Helium" symbol="He" atomic={2} mass={4} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+            <tr>
+              <Cell element="Lithium" symbol="Li" atomic={3} mass={6.9} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Beryllium" symbol="Be" atomic={4} mass={9} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <WhiteSpace spaces={10} />
+              <Cell element="Boron" symbol="B" atomic={5} mass={10.8} type="metalloid" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Carbon" symbol="C" atomic={6} mass={12.0} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Nitrogen" symbol="N" atomic={7} mass={14.0} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Oxygen" symbol="O" atomic={8} mass={16.0} type="nonmetal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Fluorine" symbol="F" atomic={9} mass={19.0} type="halogen" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Neon" symbol="Ne" atomic={10} mass={20.2} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+            <tr>
+              <Cell element="Sodium" symbol="Na" atomic={11} mass={23} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Magnesium" symbol="Mg" atomic={12} mass={24.305} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <WhiteSpace spaces={10} />
+              <Cell element="Aluminum" symbol="Al" atomic={13} mass={26.982} type="post-transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Silicon" symbol="Si" atomic={14} mass={28.085} type="metalloid" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Silicon" symbol="Si" atomic={14} mass={28.085} type="metalloid" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Sulfur" symbol="S" atomic={16} mass={32} type="nonmetal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Chlorine" symbol="Cl" atomic={17} mass={35.5} type="halogen" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Argon" symbol="Ar" atomic={18} mass={40} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+            <tr>
+              <Cell element="Potassium" symbol="K" atomic={19} mass={39} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Calcium" symbol="Ca" atomic={20} mass={40} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <WhiteSpace spaces={10} />
+              <Cell element="Scandium" symbol="Sc" atomic={21} mass={45} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Titanium" symbol="Ti" atomic={22} mass={48} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Vanadium" symbol="V" atomic={23} mass={51} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Chromium" symbol="Cr" atomic={24} mass={52} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Manganese" symbol="Mn" atomic={25} mass={55} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Iron" symbol="Fe" atomic={26} mass={56} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+            <tr>
+              <Cell element="Cobalt" symbol="Co" atomic={27} mass={59} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Nickel" symbol="Ni" atomic={28} mass={59} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Copper" symbol="Cu" atomic={29} mass={63.5} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Zinc" symbol="Zn" atomic={30} mass={65.4} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Gallium" symbol="Ga" atomic={31} mass={70} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Germanium" symbol="Ge" atomic={32} mass={73} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Arsenic" symbol="As" atomic={33} mass={75} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Selenium" symbol="Se" atomic={34} mass={79} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Bromine" symbol="Br" atomic={35} mass={80} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Krypton" symbol="Kr" atomic={36} mass={84} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Rubidium" symbol="Rb" atomic={37} mass={85} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Strontium" symbol="Sr" atomic={38} mass={88} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Yttrium" symbol="Y" atomic={39} mass={89} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Zirconium" symbol="Zr" atomic={40} mass={91} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Niobium" symbol="Nb" atomic={41} mass={93} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Molybdenum" symbol="Mo" atomic={42} mass={96} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Technetium" symbol="Tc" atomic={43} mass={98} type="transition metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Strontium" symbol="Sr" atomic={38} mass={88} type="alkaline earth metal" onHoveredSymbolChange={handleHoveredSymbolChange} />
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+            </tr>
+            <tr>
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Alkali Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Alkaline Earth Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+            <tr>
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Alkali Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Alkaline Earth Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+            <tr>
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Alkali Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Alkaline Earth Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"Transition Metals"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+              <Cell element="Litio" symbol="L" atomic={3} mass={6} type={"metal"} onHoveredSymbolChange={handleHoveredSymbolChange} />
+            </tr>
+          </tbody>
+        </table>
+      </main>
+    </div>
   )
 }
