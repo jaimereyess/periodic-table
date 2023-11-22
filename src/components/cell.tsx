@@ -24,11 +24,11 @@ const Cell = ({ element, symbol, atomic, mass, type, onHoveredSymbolChange }: Ce
     const elementColor = getColorByType(type)
 
     return (
-        <td className={`relative text-center w-20 h-20 text-2xl duration-700 transition-ease-in-out
-              hover:scale-150 ${elementColor}`}
+        <td className={`relative text-center w-20 h-20 text-2xl duration-700 transition-ease-in-out font-bold
+              hover:scale-150 ${elementColor} hover:outline hover:outline-1 hover:outline-white `}
             onMouseEnter={handleHover}>
-            <p className='absolute text-sm top-0.5 left-1.5'>{mass}</p>
-            <p className='absolute text-sm top-0.5 right-1.5'>{atomic}</p >
+            <p className='absolute text-sm top-0.5 left-1.5'>{atomic}</p>
+            <p className='absolute text-sm top-0.5 right-1.5'>{mass}</p >
             <span className='absolute text-2xl left-1/2 -translate-x-1/2 -translate-y-1/2'>{symbol}</span>
             <span className='absolute text-xs bottom-0 left-1/2 transform -translate-x-1/2'>{element}</span>
         </td>

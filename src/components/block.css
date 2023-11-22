@@ -44,7 +44,7 @@
 
 .span-block {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     left: 50%;
     font-size: 10px;
     transform: translateX(-50%);

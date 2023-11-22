@@ -2,25 +2,25 @@
 export const getColorByType = (type: string) => {
     switch (type) {
         case "noble gas":
-            return "bg-green-400 text-black hover:bg-green-700";
+            return "bg-[#005927] text-white hover:bg-[#09301a]";
         case "Transition Metals":
-            return "bg-sky-400 text-white hover:bg-sky-700";
+            return "bg-[#0075C5] text-white hover:bg-[#005186]";
         case "Halogens":
-            return "bg-green-400 text-black hover:bg-green-700";
+            return "bg-[#92A60E] text-black hover:bg-[#738021]";
         case "Alkaline Earth Metals":
-            return "bg-yellow-400 text-white hover:bg-yellow-700";
+            return "bg-[#F9AC00] text-black hover:bg-[#df9800]";
         case "nonmetals":
-            return "bg-orange-400 text-white hover:bg-orange-700";
+            return "bg-[#EB6811] text-black hover:bg-[#d85600]";
         case "Alkali Metals":
-            return "bg-blue-600 text-white hover:bg-blue-900";
+            return "bg-[#00203E] text-white hover:bg-[#10375c]";
         case "Metalloids":
-            return "bg-pink-400 text-white hover:bg-pink-700";
+            return "bg-[#DF0035] text-white hover:bg-[#a10228]";
         case "Lanthanides":
-            return "bg-lime-400 text-white hover:bg-lime-700";
+            return "bg-[#C1CB78] text-black hover:bg-[#888f54]";
         case "Other Metals":
-            return "bg-purple-400 text-white hover:bg-purple-700";
+            return "bg-[#600F66] text-white hover:bg-[#430947]";
         case "Actinides":
-            return "bg-teal-400 text-white hover:bg-teal-700";
+            return "bg-[#5A956F] text-black hover:bg-[#3b7550]";
         default:
             return "bg-gray-400 text-white hover:bg-gray-600";
     }

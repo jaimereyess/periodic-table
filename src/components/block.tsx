@@ -13,11 +13,11 @@ function Block({ element, symbol, mass, atomic, type }: BlockProps) {
     const elementColor = getColorByType(type)
 
     return (
-        <div className={`block ${elementColor}`}>
+        <div className={`block ${elementColor} font-bold`}>
             <p className="atomic">{atomic}</p>
+            <p className="mass">{mass}</p>
             {symbol}
             <span className="span-block">{element}</span>
-            <p className="mass">{mass}</p>
         </div>
     )
 }

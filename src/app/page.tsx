@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <div className="select-none">
+    <div className="select-none p-4">
       <header className="flex justify-center align-middle text-4xl text-white mt-4 ">
         Peridic Table
       </header>
