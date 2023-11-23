@@ -6,7 +6,7 @@
     padding: 10px;
     height: 200px;
     width: 200px;
-    top: 18%;
+    top: 12%;
     left: 15%;
     z-index:4;
     font-size: 60px;
@@ -17,35 +17,26 @@
 
 .block p{
     font-size: 30px;
-    left: 15px;
 }
-
-.block span{
-    font-size: 30px;
-}
-
 
 .mass {
     position: absolute;
-    top: 0px;
-    left: 5px;
-    font-size: 15px;
+    top: 0;
+    left: 0;
+    transform: translateX(25%);
 }
-
-
 
 .atomic {
     position: absolute;
-    top: 0px;
-    right: 5px;
-    font-size: 15px;
-    transform: translateX(40%);
+    top: 0;
+    right: 0;
+    transform: translateX(-25%);
 }
 
 .span-block {
+    font-size: 25px;
     position: absolute;
     bottom: 10px;
     left: 50%;
-    font-size: 10px;
     transform: translateX(-50%);
 }
