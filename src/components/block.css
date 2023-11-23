@@ -1,11 +1,10 @@
-
 .block{
     display: flex;
     position: absolute;
     text-align: center;
     padding: 10px;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     top: 12%;
     left: 15%;
     z-index:4;
@@ -14,29 +13,28 @@
     justify-content: center;
 }
 
-
 .block p{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .mass {
     position: absolute;
     top: 0;
-    left: 0;
-    transform: translateX(25%);
+    right: 0;
+    transform: translateX(-15%);
 }
 
 .atomic {
     position: absolute;
     top: 0;
-    right: 0;
-    transform: translateX(-25%);
+    left: 0;
+    transform: translateX(15%);
 }
 
 .span-block {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
-    bottom: 10px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
