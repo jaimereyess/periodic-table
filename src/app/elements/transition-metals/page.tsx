@@ -2,6 +2,7 @@
 import React from 'react'
 import ElementsNav from '@/components/elements-nav'
 import Block from '@/components/block'
+import Tittle from '@/components/title'
 import { motion } from "framer-motion";
 import { containerAnimated } from '@/components/animations';
 
@@ -9,11 +10,14 @@ function TransitionMetals() {
     return (
         <>
             <ElementsNav />
+            <header className='select-none mt-4 flex justify-center'>
+                <Tittle text="Transition Metals" />
+            </header>
             <motion.div
                 variants={containerAnimated}
                 initial="hidden"
                 animate="visible"
-                className='mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-6'>
+                className='mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6'>
                 <Block element="Scandium" symbol="Sc" atomic={21} mass={44.96} type="Transition Metals" />
                 <Block element="Titanium" symbol="Ti" atomic={22} mass={47.87} type="Transition Metals" />
                 <Block element="Vanadium" symbol="V" atomic={23} mass={50.94} type="Transition Metals" />

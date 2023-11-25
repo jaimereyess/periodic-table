@@ -3,6 +3,9 @@ import { useState } from "react";
 import Cell from "../components/cell"
 import WhiteSpace from "@/components/white-space"
 import Block from "@/components/block";
+import { motion } from "framer-motion"
+import { itemAnimated, containerAnimated } from "./animations"
+
 
 export default function Table() {
     const [hoveredSymbol, setHoveredSymbol] = useState<string>('H');
@@ -22,24 +25,26 @@ export default function Table() {
     };
 
     return (
-        <div className="select-none pt-0 p-4">
-            <header className="flex justify-center align-middle text-4xl text-white mt-4 ">
-                Peridic Table
-            </header>
-            <div className="block">
+        <>
+            <motion.div variants={itemAnimated} initial="hidden"
+                animate="visible">
                 <Block element={hoveredElement} symbol={hoveredSymbol} atomic={hoveredAtomic} mass={hoveredMass} type={hoveredType} />
-            </div>
-
+            </motion.div>
 
             <main className="flex">
                 <table className="w-full border-separate border-spacing-3">
                     <tbody>
-                        <tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible"
+                        >
                             <Cell element="Hydrogen" symbol="H" atomic={1} mass={1} type="nonmetals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <WhiteSpace spaces={16} />
                             <Cell element="Helium" symbol="He" atomic={2} mass={4} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <Cell element="Lithium" symbol="Li" atomic={3} mass={6.9} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Beryllium" symbol="Be" atomic={4} mass={9.0} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <WhiteSpace spaces={10} />
@@ -49,8 +54,10 @@ export default function Table() {
                             <Cell element="Oxygen" symbol="O" atomic={8} mass={16.0} type="nonmetals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Fluorine" symbol="F" atomic={9} mass={19.0} type="Halogens" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Neon" symbol="Ne" atomic={10} mass={20.2} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <Cell element="Sodium" symbol="Na" atomic={11} mass={22.99} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Magnesium" symbol="Mg" atomic={12} mass={24.31} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <WhiteSpace spaces={10} />
@@ -60,8 +67,10 @@ export default function Table() {
                             <Cell element="Sulfur" symbol="S" atomic={16} mass={32.06} type="nonmetals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Chlorine" symbol="Cl" atomic={17} mass={35.45} type="Halogens" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Argon" symbol="Ar" atomic={18} mass={39.95} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <Cell element="Potassium" symbol="K" atomic={19} mass={39.10} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Calcium" symbol="Ca" atomic={20} mass={40.08} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Scandium" symbol="Sc" atomic={21} mass={44.96} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
@@ -80,8 +89,10 @@ export default function Table() {
                             <Cell element="Selenium" symbol="Se" atomic={34} mass={78.97} type="nonmetals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Bromine" symbol="Br" atomic={35} mass={79.90} type="Halogens" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Krypton" symbol="Kr" atomic={36} mass={83.80} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <Cell element="Rubidium" symbol="Rb" atomic={37} mass={85.47} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Strontium" symbol="Sr" atomic={38} mass={87.62} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Yttrium" symbol="Y" atomic={39} mass={88.91} type="Transition Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
@@ -100,8 +111,10 @@ export default function Table() {
                             <Cell element="Tellurium" symbol="Te" atomic={52} mass={127.60} type="Metalloids" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Iodine" symbol="I" atomic={53} mass={126.90} type="Halogens" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Xenon" symbol="Xe" atomic={54} mass={131.29} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <Cell element="Cesium" symbol="Cs" atomic={55} mass={132.91} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Barium" symbol="Ba" atomic={56} mass={137.33} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Lutetium" symbol="Lu" atomic={71} mass={174.97} type="Lanthanides" onHoveredSymbolChange={handleHoveredSymbolChange} />
@@ -120,8 +133,10 @@ export default function Table() {
                             <Cell element="Polonium" symbol="Po" atomic={84} mass={209} type="Metalloids" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Astatine" symbol="At" atomic={85} mass={210} type="Halogens" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Radon" symbol="Rn" atomic={86} mass={222} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <Cell element="Francium" symbol="Fr" atomic={87} mass={223} type="Alkali Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Radium" symbol="Ra" atomic={88} mass={226} type="Alkaline Earth Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Lawrencium" symbol="Lr" atomic={103} mass={266} type="Actinides" onHoveredSymbolChange={handleHoveredSymbolChange} />
@@ -140,11 +155,13 @@ export default function Table() {
                             <Cell element="Livermorium" symbol="Lv" atomic={116} mass={293} type="Other Metals" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Tennessine" symbol="Ts" atomic={117} mass={294} type="Halogens" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Oganesson" symbol="Og" atomic={118} mass={294} type="noble gas" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
+                        </motion.tr>
                         <tr>
                             <WhiteSpace spaces={18} />
                         </tr>
-                        <tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <WhiteSpace spaces={2} />
                             <Cell element="Lanthanum" symbol="La" atomic={57} mass={138.91} type="Lanthanides" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Cerium" symbol="Ce" atomic={58} mass={140.12} type="Lanthanides" onHoveredSymbolChange={handleHoveredSymbolChange} />
@@ -160,8 +177,10 @@ export default function Table() {
                             <Cell element="Erbium" symbol="Er" atomic={68} mass={167.26} type="Lanthanides" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Thulium" symbol="Tm" atomic={69} mass={168.93} type="Lanthanides" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Ytterbium" symbol="Yb" atomic={70} mass={173.05} type="Lanthanides" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
-                        <tr>
+                        </motion.tr>
+                        <motion.tr variants={itemAnimated}
+                            initial="hidden"
+                            animate="visible">
                             <WhiteSpace spaces={2} />
                             <Cell element="Actinium" symbol="Ac" atomic={89} mass={227} type="Actinides" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Thorium" symbol="Th" atomic={90} mass={232.04} type="Actinides" onHoveredSymbolChange={handleHoveredSymbolChange} />
@@ -177,10 +196,10 @@ export default function Table() {
                             <Cell element="Fermium" symbol="Fm" atomic={100} mass={257} type="Actinides" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Mendelevium" symbol="Md" atomic={101} mass={258} type="Actinides" onHoveredSymbolChange={handleHoveredSymbolChange} />
                             <Cell element="Nobelium" symbol="No" atomic={102} mass={259} type="Actinides" onHoveredSymbolChange={handleHoveredSymbolChange} />
-                        </tr>
+                        </motion.tr>
                     </tbody>
                 </table>
             </main>
-        </div>
+        </>
     )
 }

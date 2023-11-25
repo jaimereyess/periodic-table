@@ -2,6 +2,7 @@
 import React from 'react'
 import ElementsNav from '@/components/elements-nav'
 import Block from '@/components/block'
+import Tittle from '@/components/title'
 import { motion } from "framer-motion";
 import { containerAnimated } from '@/components/animations';
 
@@ -9,11 +10,14 @@ function Actinides() {
     return (
         <>
             <ElementsNav />
+            <header className='select-none mt-4 flex justify-center'>
+                <Tittle text="Actinides" />
+            </header>
             <motion.div
                 variants={containerAnimated}
                 initial="hidden"
                 animate="visible"
-                className='mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                className='mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8'>
                 <Block element="Actinium" symbol="Ac" atomic={89} mass={227} type="Actinides" />
                 <Block element="Thorium" symbol="Th" atomic={90} mass={232.04} type="Actinides" />
                 <Block element="Protactinium" symbol="Pa" atomic={91} mass={231.04} type="Actinides" />

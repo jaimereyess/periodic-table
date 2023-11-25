@@ -2,6 +2,7 @@
 import React from 'react'
 import ElementsNav from '@/components/elements-nav'
 import Block from '@/components/block'
+import Tittle from '@/components/title'
 import { motion } from "framer-motion";
 import { containerAnimated } from '@/components/animations';
 
@@ -9,11 +10,14 @@ function AlcalineEarthMetals() {
     return (
         <>
             <ElementsNav />
+            <header className='select-none mt-4 flex justify-center'>
+                <Tittle text="Alkaline Earth Metals" />
+            </header>
             <motion.div
                 variants={containerAnimated}
                 initial="hidden"
                 animate="visible"
-                className='mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                className='mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8'>
                 <Block element="Beryllium" symbol="Be" atomic={4} mass={9.0} type="Alkaline Earth Metals" />
                 <Block element="Magnesium" symbol="Mg" atomic={12} mass={24.31} type="Alkaline Earth Metals" />
                 <Block element="Calcium" symbol="Ca" atomic={20} mass={40.08} type="Alkaline Earth Metals" />
