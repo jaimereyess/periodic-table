@@ -5,7 +5,6 @@
     padding: 10px;
     height: 200px;
     width: 200px;
-    z-index:4;
     font-size: 60px;
     align-items: center;
     justify-content: center;
@@ -36,4 +35,52 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+
+
+
+.index-block{
+    width: 20px;
+    height: 20px;
+}
+
+.iblock-strong-green{
+    background-color: #005927;
+}
+
+.iblock-blue{
+    background-color: #0075C5;
+}
+
+.iblock-green{
+    background-color: #92A60E;
+}
+
+.iblock-yellow{
+    background-color: #F9AC00;
+}
+
+.iblock-orange{
+    background-color: #EB6811;
+}
+
+.iblock-strong-blue{
+    background-color: #10375c;
+}
+
+.iblock-pink{
+    background-color: #DF0035;
+}
+
+.iblock-light-green{
+    background-color: #C1CB78;
+}
+
+.iblock-purple{
+    background-color: #600F66;
+}
+
+.iblock-light-lime{
+    background-color: #5A956F;
 }

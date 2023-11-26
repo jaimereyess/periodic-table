@@ -4,7 +4,8 @@ import Cell from "../components/cell"
 import WhiteSpace from "@/components/white-space"
 import Block from "@/components/block";
 import { motion } from "framer-motion"
-import { itemAnimated, containerAnimated } from "./animations"
+import { itemAnimated } from "./animations"
+import Index from ".";
 
 
 export default function Table() {
@@ -27,8 +28,11 @@ export default function Table() {
     return (
         <>
             <motion.div variants={itemAnimated} initial="hidden"
-                animate="visible">
+                animate="visible"
+                className="mt-8"
+            >
                 <Block element={hoveredElement} symbol={hoveredSymbol} atomic={hoveredAtomic} mass={hoveredMass} type={hoveredType} />
+                <Index />
             </motion.div>
 
             <main className="flex">

@@ -19,18 +19,16 @@ function Block({ element, symbol, mass, atomic, type }: BlockProps) {
     const pathname = usePathname()
     const isTable = pathname === `/`
 
-    const table = isTable ? "absolute top-[12%] left-[15%]" : "relative"
+    const table = isTable ? "absolute left-[15%]" : "relative"
 
     const elementColor = getColorByType(type)
 
     return (
-        <motion.article variants={blockAnimated} >
-            <div className={`blockElements top-[12%] ${table} ${elementColor} font-bold`}>
-                <p className="atomic">{atomic}</p>
-                <p className="mass">{mass}</p>
-                {symbol}
-                <span className="span-block">{element}</span>
-            </div>
+        <motion.article variants={blockAnimated} className={`blockElements ${table} ${elementColor} font-bold`}>
+            <p className="atomic">{atomic}</p>
+            <p className="mass">{mass}</p>
+            <span className="font-cursive">{symbol}</span>
+            <span className="span-block">{element}</span>
         </motion.article>
     )
 }

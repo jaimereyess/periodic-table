@@ -12,7 +12,7 @@ export const getColorByType = (type: string) => {
         case "nonmetals":
             return "bg-[#EB6811] text-black hover:bg-[#d85600]";
         case "Alkali Metals":
-            return "bg-[#00203E] text-white hover:bg-[#10375c]";
+            return "bg-[#10375c] text-white hover:bg-[#00203E]";
         case "Metalloids":
             return "bg-[#DF0035] text-white hover:bg-[#a10228]";
         case "Lanthanides":
