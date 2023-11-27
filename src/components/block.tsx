@@ -27,7 +27,7 @@ function Block({ element, symbol, mass, atomic, type }: BlockProps) {
         <motion.article variants={blockAnimated} className={`blockElements ${table} ${elementColor} font-bold`}>
             <p className="atomic">{atomic}</p>
             <p className="mass">{mass}</p>
-            <span className="font-cursive">{symbol}</span>
+            {symbol}
             <span className="span-block">{element}</span>
         </motion.article>
     )

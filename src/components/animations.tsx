@@ -4,8 +4,8 @@ export const containerAnimated = {
         opacity: 1,
         scale: 1,
         transition: {
-            delayChildren: 0.1,
-            staggerChildren: 0.1
+            delayChildren: 0.05,
+            staggerChildren: 0.05
         }
     }
 };

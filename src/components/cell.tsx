@@ -30,7 +30,7 @@ const Cell = ({ element, symbol, atomic, mass, type, onHoveredSymbolChange }: Ce
             onMouseEnter={handleHover}>
             <p className='absolute text-sm top-0.5 left-1.5 hidden md:flex lg:flex'>{atomic}</p>
             <p className='absolute text-sm top-0.5 right-1.5 hidden lg:flex'>{massFormat}</p >
-            <span className='absolute text-2xl left-1/2 -translate-x-1/2 -translate-y-1/2 font-cursive'>{symbol}</span>
+            <span className='absolute text-2xl left-1/2 -translate-x-1/2 -translate-y-1/2'>{symbol}</span>
             <span className='absolute text-xs bottom-0 left-1/2 transform -translate-x-1/2 hidden lg:flex'>{element}</span>
         </td>
     )
